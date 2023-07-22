@@ -5,7 +5,7 @@ var cors = require("cors");
 connectToMongo();
 const app = express() ;
 
-dotenv.config({path: '../.env'}) ;
+dotenv.config({path: '.env'}) ;
 
 const port = process.env.PORT ;
 
@@ -17,7 +17,7 @@ app.use("/api/auth" , require("./routes/auth")) ;
 app.use("/api/blogs" , require("./routes/blogs")) ;
 
 app.get('/', (req, res) => {
-  res.send('hello world');
+  res.send('Welcome to BitBlogger backend');
 })
 
 app.listen(port, ()=>{
