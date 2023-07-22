@@ -62,8 +62,8 @@ const TotalItem = (props) => {
               
               {/* show the length of the like list array */}
               <h5 className="col justify-content-start">
-                <img className="likeimg-css" onClick={() => {likeBlog(blog._id);}}src={likeimg} />
-                {" " + blog.likes.length }
+                <button className="bg-transparent btn shadow-none"> <img className="likeimg-css" onClick={() => {likeBlog(blog._id);}}src={likeimg} /> </button>
+                {blog.likes.length }
               </h5>
 
               <h5 className="col d-flex justify-content-end">
