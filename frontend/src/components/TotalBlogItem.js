@@ -24,7 +24,7 @@ const TotalItem = (props) => {
   const getUser = async () => {
     // API
     const response = await fetch(
-      `http://localhost:5000/api/auth/getbloguser/${blog.user}`,
+      `https://bitblogger-backend.onrender.com/api/auth/getbloguser/${blog.user}`,
       {
         method: "POST",
         headers: {
