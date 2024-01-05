@@ -18,7 +18,7 @@ const Navbar = (props) => {
     });
 
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
   };
 
   const refClose = useRef(null);
@@ -60,7 +60,7 @@ const Navbar = (props) => {
     });
 
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     setUser(json);
   };
 

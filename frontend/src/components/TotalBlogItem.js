@@ -3,6 +3,8 @@ import BlogContext from "../context/BlogContext";
 import ReadMore from "./ReadMore";
 import likeimg from "../like.png";
 import "./TotalBlogItem.css";
+// const host = "https://bitblogger-backend.onrender.com" ;
+const host = "http://localhost:5000";
 
 // yaha props me blog.js se aaya hua data use ho raha hai
 const TotalItem = (props) => {
@@ -24,7 +26,7 @@ const TotalItem = (props) => {
   const getUser = async () => {
     // API
     const response = await fetch(
-      `https://bitblogger-backend.onrender.com/api/auth/getbloguser/${blog.user}`,
+      `${host}/api/auth/getbloguser/${blog.user}`,
       {
         method: "POST",
         headers: {

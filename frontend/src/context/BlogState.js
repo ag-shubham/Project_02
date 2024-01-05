@@ -17,9 +17,9 @@ const BlogState = (props) => {
         "auth-token": localStorage.getItem('token')
       },
     });
-    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIyZjNhOTJiN2UxNTFiZjFjMDEwYjlkIn0sImlhdCI6MTY0NzI2MjM1NH0.a7Fi4W40nqfizOF70MzCKbMV8Fpnsn6fNbLKiDjvLsQ
+    
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     setBlog(json);
   };
 
@@ -34,7 +34,7 @@ const BlogState = (props) => {
     });
     
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     setBlog(json);
   };
 
@@ -67,7 +67,7 @@ const BlogState = (props) => {
       // body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     //logic
     const deleteBlog = blogs.filter((blog) => {
       return blog._id !== id;
@@ -87,7 +87,7 @@ const BlogState = (props) => {
       body: JSON.stringify({ title, content, tag }), // body data type must match "Content-Type" header
     });
     const json = await response.json() ;
-    console.log(json) ;
+    // console.log(json) ;
 
     // logic
     let newBlogs = JSON.parse(JSON.stringify(blogs))
@@ -115,12 +115,20 @@ const BlogState = (props) => {
       // body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
     const json = await response.json();
-    console.log(json);
+    if(json.error) {
+      alert("Please Login to Like a Blog") ;
+      return ;
+    }
+    // console.log(json);
     // search for the blog to be liked and update
     let newBlogs = JSON.parse(JSON.stringify(blogs))
     for (let index = 0; index < newBlogs.length; index++) {
       const element = newBlogs[index];
       if (element._id === id) {
+        if(newBlogs[index].likes.includes("req.params.id")) {
+          alert("You have already liked this blog") ;
+          break ;
+        }
         newBlogs[index].likes.push("req.params.id");
         break;
       }

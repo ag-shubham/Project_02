@@ -149,8 +149,9 @@ router.post('/getbloguser/:id',  async (req, res) => {
     try {
       const userId = req.params.id;
       // yahan select me -password likhkr ham data me se password hatakr send krenge
-      const user = await User.findById(userId);
-      res.send(user)
+      const user = await User.findById(userId).select("name");
+    //   console.log(user);
+      res.send(user) ;
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Internal Server Error");
