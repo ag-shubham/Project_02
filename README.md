@@ -44,11 +44,13 @@ To run this project locally, follow these steps:
 
     - **Backend:**
       - Use `nodemon` for automatic server restarts during development:
+      
         ```bash
         cd backend
         nodemon index.js
         ```
       - Alternatively, without `nodemon`:
+
         ```bash
         cd backend
         node index.js
