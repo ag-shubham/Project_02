@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./About.css"
+
 const About = () => {
+
+  const host = "https://bitblogger-backend.onrender.com";
+  const checkServer = async () => {
+    try {
+      const res = await fetch(`${host}/`, {
+        method: "GET",
+      });
+      console.log(res.status);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    checkServer();
+  }, []);
 
   return (
     <div className="container text-dark">
