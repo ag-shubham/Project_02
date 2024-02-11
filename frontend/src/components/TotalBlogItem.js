@@ -1,9 +1,9 @@
-import React, { useRef, useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import BlogContext from "../context/BlogContext";
 import ReadMore from "./ReadMore";
 import likeimg from "../like.png";
 import "./TotalBlogItem.css";
-const host = "https://bitblogger-backend.onrender.com" ;
+const host = "https://bitblogger-backend.onrender.com";
 
 const TotalItem = (props) => {
   const context = useContext(BlogContext);
@@ -41,7 +41,13 @@ const TotalItem = (props) => {
   const [finDate, setDate] = useState(initDate);
   const showDate = () => {
     const myDate = new Date(blog.date);
-    const tempDate = myDate.toLocaleString();
+    const tempDate = myDate.toLocaleDateString('en-IN', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
     setDate(tempDate);
   };
 
@@ -57,15 +63,15 @@ const TotalItem = (props) => {
               <ReadMore>{blog.content}</ReadMore>
             </p>
             <div className="row">
-              
+
               {/* show the length of the like list array */}
               <h5 className="col justify-content-start">
-                <button className="bg-transparent btn shadow-none"> <img className="likeimg-css" onClick={() => {likeBlog(blog._id);}}src={likeimg} /> </button>
-                {blog.likes.length }
+                <button className="bg-transparent btn shadow-none"> <img className="likeimg-css" onClick={() => { likeBlog(blog._id); }} src={likeimg} alt="like-btn"/> </button>
+                {blog.likes.length}
               </h5>
 
               <h5 className="col d-flex justify-content-end">
-                Date Added : {finDate}
+                Added On : {finDate}
               </h5>
             </div>
           </div>
