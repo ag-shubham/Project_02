@@ -3,10 +3,8 @@ import BlogContext from "../context/BlogContext";
 import ReadMore from "./ReadMore";
 import likeimg from "../like.png";
 import "./TotalBlogItem.css";
-// const host = "https://bitblogger-backend.onrender.com" ;
-const host = "http://localhost:5000";
+const host = "https://bitblogger-backend.onrender.com" ;
 
-// yaha props me blog.js se aaya hua data use ho raha hai
 const TotalItem = (props) => {
   const context = useContext(BlogContext);
   const { likeBlog } = context;
@@ -14,8 +12,6 @@ const TotalItem = (props) => {
   // const ref = useRef(null)
   // const refClose = useRef(null)
 
-  // ye username show krne ke liye
-  // date convert krne ke liye bhi
   const initUser = [];
   const [user, setUser] = useState(initUser);
   useEffect(() => {
@@ -76,7 +72,6 @@ const TotalItem = (props) => {
         </div>
       </div>
 
-      {/* https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png */}
     </div>
   );
 };
