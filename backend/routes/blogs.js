@@ -9,7 +9,7 @@ const Comments = require("../models/Comments");
 //Route 1 : Get All the blogs for a particular user. Login required
 router.get("/fetchallblogs", fetchUser, async (req, res) => {
   try {
-    const blogs = await Blog.find({ user: req.user.id });
+    const blogs = await Blog.find({ user: req.user.id }).sort({ date: -1 });
     res.json(blogs);
   } catch (error) {
     console.error(error.message);
@@ -120,7 +120,7 @@ router.delete("/deleteBlog/:id", fetchUser, async (req, res) => {
 //Route 5 : Get All the blogs
 router.get("/fetchtotalblogs", async (req, res) => {
   try {
-    const blogs = await Blog.find({});
+    const blogs = await Blog.find({}).sort({ date: -1 });
     res.json(blogs);
   } catch (error) {
     console.error(error.message);
